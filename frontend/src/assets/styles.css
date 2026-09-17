@@ -1,0 +1,142 @@
+* { box-sizing: border-box;}
+
+:root {
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+    background: #f3f4f6;
+
+    /* Teal: acción de editar/actualizar */
+    --teal: #0d9488;
+    --teal-dark: #0f766e;
+
+    /* Azul: acción de crear */
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+
+    /* Gama de grises: acciones neutras (cancelar, eliminar) y texto */
+    --gray-900: #111827;
+    --gray-700: #374151;
+    --gray-500: #6b7280;
+    --gray-300: #d1d5db;
+    --gray-100: #f3f4f6;
+
+    --white: #fff;
+
+    /* Sombras y radios reutilizables */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,.10);
+    --radius: 8px;
+    --radius-sm: 6px;
+}
+
+body {margin: 0; background: var(--gray-100);}
+
+button, input, select { font: inherit;}
+
+/* Botón por defecto = azul → accion de crear */
+button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    cursor: pointer;
+    background: var(--blue);
+    color: white;
+    font-weight: 600;
+    transition: background-color .15s ease;
+}
+
+button:hover { background: var(--blue-dark);}
+
+button:focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Editar / Actualizar = teal */
+button.edit { background: var(--teal);}
+button.edit:hover { background: var(--gray-700);}
+
+/* Cancelar / Eliminar = gris */
+button.secondary { background: var(--gray-500);}
+button.secondary:hover {background: var(--gray-700);}
+
+.navbar {
+    min-height: 64px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-bottom: 3px solid var(--teal);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--gray-700);
+}
+
+.nav-right button.secondary {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+}
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 30px auto;
+}
+
+.page-header {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.page-header p{
+    font-size: 0.875rem;
+    color: var(--gray-500);
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 22px;
+}
+
+.form-grid {
+    display: grid;
+    gap: 12px;
+}
+
+input, select {
+    width: 100%;
+    padding: 11px;
+    border:  1px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    transition: outline .15s ease;
+}
+
+input:focus, select:focus {
+    outline: 2px solid var(--teal);
+}
