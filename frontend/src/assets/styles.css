@@ -139,4 +139,5 @@ input, select {
 
 input:focus, select:focus {
     outline: 2px solid var(--teal);
+    
 }
