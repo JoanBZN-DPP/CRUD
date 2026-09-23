@@ -1,7 +1,7 @@
 import { Package, Pencil, Trash2 } from 'lucide-react';
 import { urlImagen } from '../utils/format';
 
-export default function TeamTable({ equipos, canDelete, onEdit, onDelete }) {
+export default function TeamTable({ equipos, canEdit, canDelete, onEdit, onDelete }) {
   if (!equipos.length) {
     return (
       <div className="card empty-state">
@@ -33,10 +33,12 @@ export default function TeamTable({ equipos, canDelete, onEdit, onDelete }) {
               </div>
 
               <div className="actions equipo-card-actions">
-                <button className="edit" onClick={() => onEdit(equipo)}>
-                  <Pencil size={16} />
-                  Editar
-                </button>
+                {canEdit && (
+                  <button className="edit" onClick={() => onEdit(equipo)}>
+                    <Pencil size={16} />
+                    Editar
+                  </button>
+                )}
                 {canDelete && (
                   <button className="secondary" onClick={() => onDelete(equipo.id_equipo)}>
                     <Trash2 size={16} />

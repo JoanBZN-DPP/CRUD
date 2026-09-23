@@ -10,11 +10,11 @@ router.use(authenticate);
 router.get('/', controller.list);
 router.get('/:id', controller.getById);
 
-// Admin y cliente pueden crear/editar en este ejemplo.
-router.post('/', authorize('admin', 'cliente'), uploadEquipoImagen, controller.create);
-router.put('/:id', authorize('admin', 'cliente'), uploadEquipoImagen, controller.update);
+// Solo el admin puede crear y editar equipos.
+router.post('/', authorize('admin'), uploadEquipoImagen, controller.create);
+router.put('/:id', authorize('admin'), uploadEquipoImagen, controller.update);
 
-//Solo admin puede eliminar.
+// Solo admin puede eliminar.
 router.delete('/:id', authorize('admin'), controller.remove);
 
 module.exports = router;

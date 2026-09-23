@@ -1,7 +1,7 @@
 {
     "name": "lab-crud-backend",
     "version": "1.0.0",
-    "description":  "Backend pedagógico CRUD + autentificación + roles ",
+    "description": "Backend pedagógico CRUD + autentificación + roles ",
     "main": "server.js",
     "scripts": {
         "dev": "nodemon server.js",
@@ -18,5 +18,8 @@
     },
     "devDependecies": {
         "nodemon": "^3.1.10"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
     }
 }

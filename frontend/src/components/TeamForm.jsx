@@ -32,13 +32,18 @@ export default function TeamForm({ editing, onSubmit, onCancel }) {
     setPreview(URL.createObjectURL(file));
   }
 
-  function submit(event) {
+  async function submit(event) {
     event.preventDefault();
-    onSubmit({ ...form, imagenFile });
-    setForm(empty);
-    setImagenFile(null);
-    setPreview(null);
-    if (fileInputRef.current) fileInputRef.current.value = '';
+
+    try {
+      await onSubmit({ ...form, imagenFile });
+      setForm(empty);
+      setImagenFile(null);
+      setPreview(null);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    } catch {
+      // La página muestra el error de la API y conserva los datos para corregirlos.
+    }
   }
 
   return (

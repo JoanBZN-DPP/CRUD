@@ -1,10 +1,15 @@
 const path = require('path')
+const fs = require('fs')
 const multer = require('multer')
 const AppError = require('../utils/AppError')
 
 const UPLOAD_DIR = path.join(__dirname, '..', '..', 'uploads', 'equipos');
 const ALLOWED_MINE = ['image/jpeg', 'image/png', 'image/webp'];
 const MAX_SIZE = 2 * 1024 * 1024;
+
+// Multer no crea directorios automáticamente. Al garantizarlo al iniciar el
+// middleware, crear un equipo con imagen funciona también en instalaciones nuevas.
+fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, UPLOAD_DIR),

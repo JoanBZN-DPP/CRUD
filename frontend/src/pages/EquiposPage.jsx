@@ -43,6 +43,7 @@ export default function EquiposPage() {
       await load();
     } catch (err) {
       setError(err.message);
+      throw err;
     }
   }
 
@@ -69,14 +70,17 @@ export default function EquiposPage() {
 
         {error && <p className="error">{error}</p>}
 
-        <TeamForm
-          editing={editing}
-          onSubmit={save}
-          onCancel={() => setEditing(null)}
-        />
+        {user?.rol === 'admin' && (
+          <TeamForm
+            editing={editing}
+            onSubmit={save}
+            onCancel={() => setEditing(null)}
+          />
+        )}
 
         <TeamTable
           equipos={equipos}
+          canEdit={user?.rol === 'admin'}
           canDelete={user?.rol === 'admin'}
           onEdit={setEditing}
           onDelete={remove}
