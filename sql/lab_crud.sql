@@ -30,4 +30,3 @@ INSERT INTO equipos (nombre, marca, modelo) VALUES
 ('Portátil', 'Lenovo', 'ThinkPad'),
 ('Monitor', 'LG', 'UltraWide'),
 ('Teclado', 'Logitech', 'K120');
-```[cite: 16]
